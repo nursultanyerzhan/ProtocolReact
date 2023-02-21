@@ -1,0 +1,60 @@
+/* Define the styles for the table */
+.k-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Define the styles for the table header */
+.k-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Define the styles for the table rows */
+.k-table tr {
+    border: 1px solid #ddd;
+}
+
+/* Define the styles for the odd table rows */
+.k-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Define the styles for the table cells */
+.k-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Define the hover effect for the table rows */
+.k-table tr:hover {
+    background-color: #e6f7ff;
+}
+
+/* Define the styles for the table titles */
+.k-table-title {
+    text-align: center !important;
+}
+
+.k-table-button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    float: right;
+}
+
+.k-table-button:hover {
+    background-color: #0069d9;
+}
+
+.k-table-button:active {
+    background-color: #005cbf;
+}
