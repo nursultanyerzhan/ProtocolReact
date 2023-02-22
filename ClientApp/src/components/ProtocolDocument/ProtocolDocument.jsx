@@ -18,7 +18,7 @@ export const ProtocolDocument = () => {
         <>
           <table className={style["k-table"]}>
             <thead>
-              <tr>
+              <tr key={protocolId}>
                 <th>Наименование мероприятии</th>
                 <th>Срок</th>
                 <th>Исполнители</th>
@@ -26,9 +26,7 @@ export const ProtocolDocument = () => {
             </thead>
             <tbody>
               {data.map((main) => (
-                <>
-                  <ProtocolMain key={main.id} mainId={main.id} title={main.nameRu}></ProtocolMain>
-                </>
+                <ProtocolMain key={main.id} mainId={main.id} title={main.nameRu}></ProtocolMain>
               ))}
             </tbody>
           </table>

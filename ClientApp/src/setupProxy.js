@@ -10,6 +10,9 @@ const context = [
   "/protocolDocument",
   "/getProtocolMains",
   "/getProtocolMissions",
+  "/getProtocolExecutingDateTypes",
+  "/postProtocolMission",
+  "/getUsers",
 ];
 
 const onError = (err, req, resp, target) => {

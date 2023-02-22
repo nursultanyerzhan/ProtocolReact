@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const protocolApi = createApi({
   reducerPath: 'protocolApi',
-  tagTypes: ['ProtocolDocuments'],
+  tagTypes: ['ProtocolDocuments', 'ProtocolMission'],
   baseQuery: fetchBaseQuery({ baseUrl: 'https://localhost:44483/' }),
   endpoints: (builder) => ({
     getProtocolDocuments: builder.query({
@@ -27,10 +27,18 @@ export const protocolApi = createApi({
       query: (protocolMainId) => `getProtocolMissions?protocolMainId=${protocolMainId}`,
       providesTags: (result) => result ?
         [
-          ...result.map(({ id }) => ({ type: 'ProtocolMissions', id })),
-          { type: 'ProtocolMissions', id: 'List' }
+          ...result.map(({ id }) => ({ type: 'ProtocolMission', id })),
+          { type: 'ProtocolMission', id: 'List' }
         ] :
-        [{ type: 'ProtocolMissions', id: 'List' }]
+        [{ type: 'ProtocolMission', id: 'List' }]
+    }),
+    addProtocolMission: builder.mutation({
+      query: (body) => ({
+        url: 'postProtocolMission',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: [{ type: 'ProtocolMission', id: 'List' }]
     }),
   }),
 })
@@ -38,4 +46,5 @@ export const protocolApi = createApi({
 export const {
   useGetProtocolDocumentsQuery,
   useGetProtocolMainsQuery, 
-  useGetProtocolMissionsQuery } = protocolApi;
+  useGetProtocolMissionsQuery, 
+  useAddProtocolMissionMutation } = protocolApi;
